@@ -66,7 +66,7 @@ router.post(
           id: user.id
         }
       };
-      //jason webtoken takes payload
+      //json webtoken takes payload
       jwt.sign(
         payload,
         config.get('jwtSecret'),

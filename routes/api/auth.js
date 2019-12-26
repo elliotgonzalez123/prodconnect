@@ -45,7 +45,7 @@ router.post(
           .status(400)
           .json({ errors: [{ message: 'invalid credentials' }] });
       }
-
+      //check if plain text password matches encrypted password
       const isMatch = await bcrypt.compare(password, user.password);
 
       if (!isMatch) {
