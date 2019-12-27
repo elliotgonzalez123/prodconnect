@@ -1,4 +1,6 @@
 {
   "jwtSecret": "mysecrettoken",
-  "mongoURI": "mongodb+srv://test123:test123@connector-wtfkn.mongodb.net/test?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://test123:test123@connector-wtfkn.mongodb.net/test?retryWrites=true&w=majority",
+  "githubClientID": "ad9b5598faee62470dbd",
+  "githubSecret": "aeb3f0fa2877c99e24b63cf3234153bc47e5ed62"
 }
