@@ -6,6 +6,8 @@ const User = require('../../models/User');
 const { check, validationResult } = require('express-validator');
 const request = require('request');
 const config = require('config');
+const { google } = require('googleapis');
+const Post = require('../../models/Post');
 
 // @route GET api/profile/me
 // @desc GET current users profile
@@ -149,6 +151,7 @@ router.get('/user/:user_id', async (req, res, next) => {
 router.delete('/', auth, async (req, res, next) => {
   try {
     //removes profile
+    await Post.deleteMany({ user: req.user.id });
     await Profile.findOneAndRemove({ user: req.user.id });
     //removes user
     await User.findOneAndRemove({ _id: req.user.id });
@@ -343,6 +346,52 @@ router.get('/github/:username', (req, res, next) => {
     console.error(err.message);
     res.status(500).send('server error');
   }
+});
+
+router.get('/youtube/:username', async (req, res, next) => {
+  const key = config.get('youtubeAPIKey');
+  // let playlistID = '';
+  // let service = google.youtube('v3');
+  // service.channels
+  //   .list({
+  //     auth: key,
+  //     part: 'contentDetails',
+  //     maxResults: 6,
+  //     forUsername: req.params.username
+  //   })
+  //   .then(function(response) {
+  //     playlistID =
+  //       response.data.items[0].contentDetails.relatedPlaylists.uploads;
+  //     service.playlistItems
+  //       .list({
+  //         auth: key,
+  //         part: 'snippet',
+  //         maxResults: 6,
+  //         playlistId: playlistID
+  //       })
+  //       .then(function(response) {
+  //         res.json(response.data);
+  //       });
+  //   });
+  let service = google.youtube({
+    version: 'v3',
+    auth: key
+  });
+
+  const channel = await service.channels.list({
+    // auth: key,
+    part: 'contentDetails',
+    maxResults: 6,
+    forUsername: req.params.username
+  });
+  const id = channel.data.items[0].contentDetails.relatedPlaylists.uploads;
+  const uploads = await service.playlistItems.list({
+    // auth: key,
+    part: 'snippet',
+    maxResults: 3,
+    playlistId: id
+  });
+  res.status(200).json(uploads);
 });
 
 module.exports = router;

@@ -1,6 +1,6 @@
 /* Global Styles */
 :root {
-  --primary-color: #17a2b8;
+  --primary-color: #ff5757;
   --dark-color: #343a40;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
@@ -70,6 +70,10 @@ img {
   color: var(--primary-color);
 }
 
+.text-skills {
+  color: #343a40;
+}
+
 .text-dark {
   color: var(--dark-color);
 }
@@ -133,6 +137,7 @@ img {
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
@@ -227,12 +232,18 @@ img {
 /* Overlay */
 .dark-overlay {
   background-color: rgba(0, 0, 0, 0.7);
+
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
+
+/* .dark-overlay img {
+  width: 50%;
+  height: 50%;
+} */
 
 /* Forms */
 .form .form-group {
@@ -308,12 +319,17 @@ button {
   z-index: 1;
   width: 100%;
   top: 0;
-  border-bottom: solid 1px var(--primary-color);
+  /* border-bottom: solid 1px #ff5757; */
   opacity: 0.9;
 }
 
 .navbar ul {
   display: flex;
+}
+
+.navbar img {
+  width: 60%;
+  height: 60%;
 }
 
 .navbar a {
@@ -333,7 +349,8 @@ button {
 /* Landing Page */
 .landing {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat center center/cover;
+  background: url('./img/pc-bg.png') no-repeat center center/cover;
+  background-color: #343a40;
   height: 100vh;
 }
 
@@ -349,6 +366,12 @@ button {
   text-align: center;
 }
 
+.landing-inner img {
+  padding: 5%;
+  max-height: 100%;
+  max-width: 100%;
+}
+
 /* Profiles Page */
 .profile {
   display: grid;
@@ -358,6 +381,10 @@ button {
   padding: 1rem;
   line-height: 1.8;
   margin-bottom: 1rem;
+  border: 1px solid #343a40;
+  /* background-color: #343a40; */
+  opacity: 0.9;
+  border-radius: 8px;
 }
 
 /* Profile Page */
@@ -378,6 +405,9 @@ button {
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-color: #343a40;
+  background: url('./img/pc-bg-profile.png') no-repeat center center/cover;
+  border-radius: 8px;
 }
 
 .profile-top img {
@@ -395,6 +425,7 @@ button {
 
 .profile-about {
   grid-area: about;
+  border-radius: 8px;
   text-align: center;
 }
 
@@ -407,10 +438,12 @@ button {
 
 .profile-exp {
   grid-area: exp;
+  border-radius: 8px;
 }
 
 .profile-edu {
   grid-area: edu;
+  border-radius: 8px;
 }
 
 .profile-exp h2,
@@ -437,6 +470,7 @@ button {
 
 .profile-github {
   grid-area: github;
+  border-radius: 8px;
 }
 
 .profile-github .repo {
@@ -464,6 +498,7 @@ button {
   grid-template-columns: 1fr 4fr;
   grid-gap: 2rem;
   align-items: center;
+  border-radius: 8px;
 }
 
 .post > div:first-child {
@@ -478,7 +513,7 @@ button {
   background: var(--light-color);
   color: var(--primary-color);
   padding: 0.1rem 0.2rem;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 0.8rem;
 }
 
