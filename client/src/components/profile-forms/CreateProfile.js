@@ -133,14 +133,14 @@ const CreateProfile = ({ createProfile, history }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="Github Username"
-            name="githubusername"
-            value={githubusername}
+            placeholder="YouTube Username"
+            name="youtube"
+            value={youtube}
             onChange={e => onChange(e)}
           />
           <small className="form-text">
-            If you want your latest repos and a Github link, include your
-            username
+            If you want to include your Youtube account, so your recent videos
+            are displayed, enter your YouTube username.
           </small>
         </div>
         <div className="form-group">
@@ -184,17 +184,6 @@ const CreateProfile = ({ createProfile, history }) => {
                 placeholder="Facebook URL"
                 name="facebook"
                 value={facebook}
-                onChange={e => onChange(e)}
-              />
-            </div>
-
-            <div className="form-group social-input">
-              <i className="fab fa-youtube fa-2x"></i>
-              <input
-                type="text"
-                placeholder="YouTube URL"
-                name="youtube"
-                value={youtube}
                 onChange={e => onChange(e)}
               />
             </div>
